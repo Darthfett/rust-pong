@@ -1,14 +1,13 @@
 use amethyst::prelude::*;
 
 use amethyst::renderer::{
-    DisplayConfig, DrawFlat2D, Event, Pipeline, RenderBundle, Stage, VirtualKeyCode,
+    DisplayConfig, DrawFlat2D, Pipeline, RenderBundle, Stage,
 };
 use amethyst::utils::application_root_dir;
 
-pub struct Pong;
+mod pong;
 
-impl SimpleState for Pong {
-}
+pub use crate::pong::Pong;
 
 fn main() -> amethyst::Result<()> {
     amethyst::start_logger(Default::default());
@@ -26,8 +25,8 @@ fn main() -> amethyst::Result<()> {
 
     let game_data = GameDataBuilder::default()
     .with_bundle(
-      RenderBundle::new(pipe, Some(config))
-        .with_sprite_sheet_processor()
+        RenderBundle::new(pipe, Some(config))
+            .with_sprite_sheet_processor()
     )?;
 
     let mut game = Application::new("./", Pong, game_data)?;
