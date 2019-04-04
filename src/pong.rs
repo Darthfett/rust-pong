@@ -38,6 +38,10 @@ impl Paddle {
     }
 }
 
+impl Component for Paddle {
+    type Storage = DenseVecStorage<Self>;
+}
+
 fn initialise_camera(world: &mut World) {
     let mut transform = Transform::default();
     transform.set_z(1.0);
@@ -82,6 +86,7 @@ impl SimpleState for Pong {
         let world = data.world;
 
         initialise_camera(world);
+        world.register::<Paddle>();
         initialise_paddles(world);
 
     }
