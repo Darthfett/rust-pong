@@ -11,8 +11,8 @@ use amethyst::renderer::{
 pub const ARENA_HEIGHT: f32 = 100.0;
 pub const ARENA_WIDTH: f32 = 100.0;
 
-const PADDLE_HEIGHT: f32 = 16.0;
-const PADDLE_WIDTH: f32 = 4.0;
+pub const PADDLE_HEIGHT: f32 = 16.0;
+pub const PADDLE_WIDTH: f32 = 4.0;
 
 pub struct Pong;
 
@@ -124,7 +124,7 @@ impl SimpleState for Pong {
         let sprite_sheet_handle = load_sprite_sheet(world);
 
         initialise_camera(world);
-        world.register::<Paddle>();
+
         initialise_paddles(world, sprite_sheet_handle);
 
     }
